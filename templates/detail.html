@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Recipe Bx | View recipe</title>
+
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ url_for('static', filename='jquery-1.10.2.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-9">
+      <h1>The Recipe Bx</h1>
+      <hr>
+    </div>
+    <div class="col-lg-3">
+      <br>
+      <button type="button" class="btn btn-primary btn-sm">account information</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row well well-md">
+        <div class="row">
+          <div class="col-md-9">
+            <h2><b>{%if name %} {{ name }} {% else %} Recipe not found {% endif %}</b></h2>
+            {% if id == '123' %}
+              <h3>Ingredients</h3>
+              <ul>
+                <li>Chicken</li>
+                <li>Parmesan</li>
+              </ul>
+              <h3>Cooking instructions</h3>
+              <ol>
+                <li>Cook chicken</li>
+                <li>Add parmesan</li>
+              </ol>
+
+              <br><br>
+              <img src="http://www.simplyscratch.com/wp-content/uploads/2013/03/Chicken-Parmesan.jpg" alt="Humans suck!" class="img-rounded" width="75%">
+
+              </div>
+
+              <div class="col-md-3" style="color:rgb(200,150,0)">
+                <h5>Difficulty:<b>Medium</b></h5>
+              </div>
+
+              {% elif id == '456' %}
+                <h3>Ingredients</h3>
+                <ul>
+                  <li>Eggplant</li>
+                  <li>Parmesan</li>
+                </ul>
+                <h3>Cooking instructions</h3>
+                <ol>
+                  <li>Cook eggplant</li>
+                  <li>Add parmesan</li>
+                </ol>
+
+                <br><br>
+                <img src="http://1.bp.blogspot.com/-Ulc3U5ER17s/UB9Hdnc_w3I/AAAAAAAADhA/cz-bbYEdRIM/s1600/eggplant%2Bparm.JPG" alt="Humans suck!" class="img-rounded" width="75%">
+
+                </div>
+
+                <div class="col-md-3" style="color:rgb(0,200,100)">
+                  <h5>Difficulty:<b>Low</b></h5>
+                </div>
+
+            {% endif %}
+          
+        </div>
+        {% if name %}
+        <div class="row">
+          <div class="col-md-10">
+            <br><br><br>
+            <form action="/save/{{id}}">
+              <button type="submit" class="btn btn-success btn-lg">Save to recipe box</button>
+            </form>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col-md-2"></div> 
+
+  </div>
+</div>
+                
+ 
+
+  </body>
+</html>
