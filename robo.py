@@ -23,7 +23,7 @@ def save(id=None, name=None, success=False):
 
 @app.route('/search', methods=['GET'])
 def find():
-    recipes = ['Chicken Parmesan', 'Eggplant Parmesan', 'Spaghetti and Meatballs', 'Tomato Soup', 'Grilled Cheese', 'Peanut Butter & Jelly Sandwich']
+    recipes = ['Straight Line Code', 'Square Path Code', 'Dancing Code', 'Hexagon Path Code', 'Indiana Jones']
     count = request.args.get('n')
     if count:
         count = int(count)
@@ -31,8 +31,8 @@ def find():
     if query == None:
         pass
 
-    elif query == 'Parmesan' or query == 'parmesan':
-        recipes = ['Chicken Parmesan', 'Eggplant Parmesan']
+    elif query == 'Path' or query == 'path':
+        recipes = ['Square Path Code', 'Hexagon Path Code']
 
     newRecipes = []
 
