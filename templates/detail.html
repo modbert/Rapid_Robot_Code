@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Recipe Bx | View recipe</title>
+    <title>The Robo Bx | View code</title>
 
     <!-- Bootstrap -->
     <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
@@ -25,7 +25,7 @@
 
   <div class="row">
     <div class="col-lg-9">
-      <h1>The Recipe Bx</h1>
+      <h1>The Robo Bx</h1>
       <hr>
     </div>
     <div class="col-lg-3">
@@ -39,58 +39,19 @@
       <div class="row well well-md">
         <div class="row">
           <div class="col-md-9">
-            <h2><b>{%if name %} {{ name }} {% else %} Recipe not found {% endif %}</b></h2>
-            {% if id == '123' %}
-              <h3>Ingredients</h3>
-              <ul>
-                <li>Chicken</li>
-                <li>Parmesan</li>
-              </ul>
-              <h3>Cooking instructions</h3>
-              <ol>
-                <li>Cook chicken</li>
-                <li>Add parmesan</li>
-              </ol>
-
-              <br><br>
-              <img src="http://www.simplyscratch.com/wp-content/uploads/2013/03/Chicken-Parmesan.jpg" alt="Humans suck!" class="img-rounded" width="75%">
-
-              </div>
-
-              <div class="col-md-3" style="color:rgb(200,150,0)">
-                <h5>Difficulty:<b>Medium</b></h5>
-              </div>
-
-              {% elif id == '456' %}
-                <h3>Ingredients</h3>
-                <ul>
-                  <li>Eggplant</li>
-                  <li>Parmesan</li>
-                </ul>
-                <h3>Cooking instructions</h3>
-                <ol>
-                  <li>Cook eggplant</li>
-                  <li>Add parmesan</li>
-                </ol>
-
-                <br><br>
-                <img src="http://1.bp.blogspot.com/-Ulc3U5ER17s/UB9Hdnc_w3I/AAAAAAAADhA/cz-bbYEdRIM/s1600/eggplant%2Bparm.JPG" alt="Humans suck!" class="img-rounded" width="75%">
-
-                </div>
-
-                <div class="col-md-3" style="color:rgb(0,200,100)">
-                  <h5>Difficulty:<b>Low</b></h5>
-                </div>
-
-            {% endif %}
+            <h2><b>{%if name %} {{ name }} {% else %} Code not found {% endif %}</b></h2>
+              <pre style="background-color: rgba(255, 255, 255, 1);font-family: monospace">
+                  {{ code }}
+                </pre>
+          </div>
           
         </div>
         {% if name %}
         <div class="row">
           <div class="col-md-10">
             <br><br><br>
-            <form action="/save/{{id}}">
-              <button type="submit" class="btn btn-success btn-lg">Save to recipe box</button>
+            <form action="#">
+              <button type="submit" class="btn btn-success btn-lg">Save to robo box</button>
             </form>
           </div>
         </div>

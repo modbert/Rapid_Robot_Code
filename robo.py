@@ -3,23 +3,89 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/detail/')
 @app.route('/detail/<id>')
-def detail(id=None, name=None):
-    if id == '123':
-        return render_template('detail.html', name='Chicken Parmesan', id='123')
-    elif id == '456':
-        return render_template('detail.html', name='Eggplant Parmesan', id='456')
-    else:
-        return render_template('detail.html', name=None, id=None)
+@app.route('/detail/<id>/<param>')
+def detail(id=None, name=None, param=1):
 
-@app.route('/save/')
-@app.route('/save/<id>')
-def save(id=None, name=None, success=False):
-    if id == '123':
-        return render_template('save.html', name='Chicken Parmesan', success=True, id='123')
-    elif id == '456':
-        return render_template('save.html', name='Eggplant Parmesan', success=False, id='456')
-    else:
-        return render_template('save.html', name=None)
+    the_name = None
+    the_code = None
+
+    if id == '1':
+        the_name = 'Straight Line Code'
+        pause = int(param) * 2000
+        the_code = "\n"\
+            +"; Drive forward for "+str(param)+" feet\n"\
+            +"forward A\n"\
+            +"forward B\n"\
+            +"pause " + str(pause)\
+            +"\nhalt A \nhalt B"
+    elif id == '2':
+        pause = int(param) * 2000
+        the_name = 'Square Path Code'
+        the_code = "\n"\
+                +"symbol counter = b1\n"\
+                +"    main:\n"\
+                +"        ; Set Motor Speed Low\n"\
+                +"        output C.5 \n"\
+                +"        \n"\
+                +"        doStuff:\n"\
+                +"        for counter = 1 to 4\n"\
+                +"            \n"\
+                +"            gosub driveAndTurn\n"\
+                +"            \n"\
+                +"        next counter\n"\
+                +"        \n"\
+                +"        end\n"\
+                +"\n"\
+                +"    driveAndTurn:\n"\
+                +"        ; Drive forward\n"\
+                +"        forward A\n"\
+                +"        forward B\n"\
+                +"        pause "+str(pause)+"\n"\
+                +"        \n"\
+                +"        ; Turn right\n"\
+                +"        halt A\n"\
+                +"        halt B\n"\
+                +"        forward A\n"\
+                +"        pause 1000\n"\
+                +"        halt A\n"\
+                +"\n"\
+                +"        return"
+
+    elif id == '3':
+        pause = int(param) * 2000
+        the_name = 'Hexagon Path Code'
+        the_code = "\n"\
+                +"symbol counter = b1\n"\
+                +"    main:\n"\
+                +"        ; Set Motor Speed Low\n"\
+                +"        output C.5 \n"\
+                +"        \n"\
+                +"        doStuff:\n"\
+                +"        for counter = 1 to 6\n"\
+                +"            \n"\
+                +"            gosub driveAndTurn\n"\
+                +"            \n"\
+                +"        next counter\n"\
+                +"        \n"\
+                +"        end\n"\
+                +"\n"\
+                +"    driveAndTurn:\n"\
+                +"        ; Drive forward\n"\
+                +"        forward A\n"\
+                +"        forward B\n"\
+                +"        pause "+str(pause)+"\n"\
+                +"        \n"\
+                +"        ; Turn right\n"\
+                +"        halt A\n"\
+                +"        halt B\n"\
+                +"        forward A\n"\
+                +"        pause 750\n"\
+                +"        halt A\n"\
+                +"\n"\
+                +"        return"
+
+
+    return render_template('detail.html', name=the_name, code=the_code)
 
 @app.route('/search', methods=['GET'])
 def find():
